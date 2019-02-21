@@ -26,7 +26,9 @@ lm.startPlaceWatch()
 def gen_info(region):
     ''' Generate static-ish info'''
     info = {}
-    start = datetime.date(2012, 06, 2)
+    # Changed 06 to 6 since starting from Python3.6, you cannot
+    # start a number with "0".
+    start = datetime.date(2012, 6, 2)
     info['days'] = (datetime.date.today() - start).days
     info['regions'] = lm.getRegions()
     info['filters'] = lm.getFilters()

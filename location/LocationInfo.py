@@ -1,8 +1,8 @@
 
-import RangeBinaryTree
-import DateRange
+from location import RangeBinaryTree
+from location import DateRange
 import datetime
-import HappyHour
+from location import HappyHour
 
 def enum(*sequential, **named):
     enums = dict(zip(sequential, range(len(sequential))), **named)
@@ -68,7 +68,7 @@ class LocationInfo ():
 
 	def getHappyHour (self, dt):
 		hhours = []
-		for date_range,hours in self.happyhours.iteritems():
+		for date_range,hours in self.happyhours.items():
 			if date_range.in_range(dt.month, dt.day):
 				hhours = hours.get(dt)
 				break
@@ -79,7 +79,7 @@ class LocationInfo ():
 	"""
 	def isHappyHour (self, dt):
 		min_offset = (dt.hour*60) + dt.minute
-		for date_range,hours in self.happyhours.iteritems():
+		for date_range,hours in self.happyhours.items():
 			if date_range.in_range(dt.month, dt.day):
 				if hours.isHappyHour(dt.weekday(), min_offset):
 					return True
@@ -100,7 +100,7 @@ class LocationInfo ():
 		open_soon = False
 
 		# Find the correct date range
-		for date_range,hours in self.hours.iteritems():
+		for date_range,hours in self.hours.items():
 			if date_range.in_range(dt.month, dt.day):
 				open_now = hours.in_range(min_offset)
 				open_soon = hours.in_range(min_offset_hour_future)
@@ -135,7 +135,7 @@ class LocationInfo ():
 
 	def __str__ (self):
 		out = 'Name: {0}\n'.format(self.name)
-		for date_range,hours in self.hours.iteritems():
+		for date_range,hours in self.hours.items():
 			out += '  {0}\n'.format(date_range)
 			out += str(hours)
 		return out
@@ -151,7 +151,7 @@ if __name__ == '__main__':
 
 	p.parse('../places/central/state/redhawk.loc', t)
 
-	print t
+	print (t)
 
-	print StateNames[t.getStatus(datetime.datetime.now())]
+	print (StateNames[t.getStatus(datetime.datetime.now())])
 

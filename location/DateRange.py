@@ -32,6 +32,6 @@ class DateRange ():
 
 if __name__ == '__main__':
 	d = DateRange(9, 1, 5, 1)
-	print d.in_range(10, 5)
-	print d.in_range(12, 29)
+	print (d.in_range(10, 5))
+	print (d.in_range(12, 29))
 

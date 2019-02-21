@@ -22,7 +22,7 @@ class HappyHour ():
 
 		offset = day * 24*60
 
-		self.hours[day].append((start-offset, end-offset))
+		self.hours[int(day)].append((start-offset, end-offset))
 
 		# make sure to invalidate the human version
 		self.pretty = None
@@ -79,7 +79,7 @@ class HappyHour ():
 	"""
 	def isHappyHour (self, weekday, min_offset):
 		for h in self.hours[weekday]:
-			print "{0} {1} {2}".format(h[0], h[1], min_offset)
+			print ("{0} {1} {2}".format(h[0], h[1], min_offset))
 			if h[0] <= min_offset and h[1] > min_offset:
 				return True
 		return False
@@ -90,10 +90,10 @@ if __name__ == '__main__':
 	h.insert(420, 480)
 #	h.insert(4860, 4920)
 #	h.insert(3780, 3840)
-	print h.get(datetime.datetime.now())
+	print (h.get(datetime.datetime.now()))
 #	h.insert(4321, 4439)
 	h.insert(3599, 3854)
-	print h.get(datetime.datetime.now())
-	print h.get(datetime.datetime.now())
+	print (h.get(datetime.datetime.now()))
+	print (h.get(datetime.datetime.now()))
 
 

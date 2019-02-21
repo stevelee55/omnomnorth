@@ -1,6 +1,6 @@
 
 import codecs
-import DateRange
+from location import DateRange
 
 def enum(*sequential, **named):
     enums = dict(zip(sequential, range(len(sequential))), **named)
@@ -93,7 +93,7 @@ class LocationParser ():
 	#  the category enum.
 	def get_detail_category (self, s):
 		s = ''.join(s.split()).lower()
-		for det,words in detail_categorize.iteritems():
+		for det,words in detail_categorize.items():
 			if s in words:
 				return det
 

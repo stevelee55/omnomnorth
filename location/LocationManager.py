@@ -6,8 +6,8 @@ import os
 import time
 from operator import attrgetter
 
-import LocationInfo
-import LocationParser
+from location import LocationInfo
+from location import LocationParser
 
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
@@ -177,7 +177,7 @@ class LocationManager ():
 		out = {}
 		now = datetime.datetime.now(timezones.Eastern)
 
-		for group,locs in sorted(self.locations[region].iteritems()):
+		for group,locs in sorted(self.locations[region].items()):
 			out[group] = []
 			for li in sorted(locs, key=attrgetter('name')):
 				if loc_f == None or li.matchesFilter(dt=now, loc_filter=loc_f):
@@ -219,8 +219,8 @@ class LocationManager ():
 
 if __name__ == '__main__':
 	lm = LocationManager('../places')
-	print lm
-	print lm.getRegions()
+	print (lm)
+	print (lm.getRegions())
 	lm.startPlaceWatch()
 	try:
 		while True:

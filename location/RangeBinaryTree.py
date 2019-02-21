@@ -71,13 +71,13 @@ class RangeBinaryTree:
 		# prints the tree path
 		if root == None:
 			if self.root == None:
-				print 'No root. Tree empty.'
+				print ('No root. Tree empty.')
 				return
 			root = self.root
 
 		if root.left != None:
 			self.printTree(root.left)
-		print 'start: {0}, end: {1}'.format(root.start, root.end)
+		print ('start: {0}, end: {1}'.format(root.start, root.end))
 		if root.right != None:
 			self.printTree(root.right)
 
@@ -105,17 +105,17 @@ class RangeBinaryTree:
 if __name__ == '__main__':
 	tree = RangeBinaryTree()
 	tree.insert(100,150)
-	print tree.in_range(125)
-	print tree.in_range(160)
+	print (tree.in_range(125))
+	print (tree.in_range(160))
 	tree.insert(80,85)
 	tree.insert(200,250)
 	tree.insert(260,300)
 	tree.insert(325,335)
 	tree.insert(252,259)
 	tree.insert(86,87)
-	print tree.in_range(86)
-	print tree.in_range(330)
-	print tree.in_range(255)
-	print tree.in_range(251)
+	print (tree.in_range(86))
+	print (tree.in_range(330))
+	print (tree.in_range(255))
+	print (tree.in_range(251))
 
 	tree.printTree()
